@@ -1,0 +1,224 @@
+test01:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword:
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品值为空 ???怎么区分店铺的  找到29个 错"
+test02:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品keyword键值对不存在 少参  找到29"
+test03:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: '#abc'
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品搜索#开头 结果0 错"
+test04:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: '包'
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品搜索中文开头 结果0 错   中文不编码参数为包 编码为%E5%8C%85 那需要编码吗???"
+test05:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: 1
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品搜索数字 结果为0"
+test06:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: '@#￥'
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品搜索特殊字符 结果0 "
+test07:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: '-2'
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "搜索商品搜索负数 结果0 错"
+test8:
+  url: "https://cloud-api.mall4j.com/mall4cloud_search/ua/search/pc_page"
+  header:
+    Content-Type: "application/json"
+    Authorization:
+  data:
+    pageNum: '1'
+    pageSize: '12'
+    keyword: whoo
+    needActivity: '1'
+  result:
+    code: "00000"
+    success: true
+  desc: "正向搜索商品 结果0 错"
+##店铺搜索
+#test09:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName:
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺名值为空 spuNum代表什么???"
+#test10:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺名键值对不存在 少参  "
+#test11:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: '#abc'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺搜索#开头 "
+#test12:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: '包'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺搜索中文开头 "
+#test13:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: 1
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺搜索数字 "
+#test14:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: '@#￥'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺搜索特殊字符 "
+#test15:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: '-2'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "搜索店铺搜索负数 "
+#test16:
+#  url: "https://cloud-api.mall4j.com//mall4cloud_multishop/ua/shop_detail/page"
+#  header:
+#    Content-Type: "application/json"
+#    Authorization:
+#  data:
+#    pageNum: '1'
+#    pageSize: '12'
+#    shopName: 'whoo'
+#    spuNum: '3'
+#  result:
+#    code: "00000"
+#    success: true
+#  desc: "正向搜索店铺名 "
+##参数校验 多参 少参 错参 无参

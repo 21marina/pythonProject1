@@ -1,0 +1,24 @@
+test01:
+  username: ""
+  password: "123456"
+  result: "请输入用户名或手机号"
+  desc: "用户名为空"
+test02:
+  username: "13213818485"
+  password: "123456"
+  result: "用户名或密码不正确"
+  desc: "用户名未注册"
+test03:
+  username: "13213818483"
+  password: ""
+  result: "登录密码不能为空"
+  desc: "密码为空"
+test04:
+  username: "13213818483"
+  password: "1234567"
+  result: "用户名或密码不正确"
+  desc: "密码错误"
+test05:
+  username: "13213818483"
+  password: "123456"
+  result: "用户名、密码正确"

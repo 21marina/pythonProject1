@@ -1,0 +1,181 @@
+test01:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: ""
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "A00002"
+    success: False
+#    data: "passWord:passWord不能为空\",\"userName:userName不能为空\",\"sysType:sysType不能为空"
+  desc: "用户名为空  data:{userName:userName不能为空}    也叫title用例标题描述   "
+#
+test02:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818482"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "A00001"
+    success: False
+  desc: "用户名未注册  msg:用户名或密码不正确 "
+test03:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    passWord: ""
+    sysType: 0
+  result:
+    code: "A00002"
+    success: False
+  desc: "密码为空   data:{passWord:passWord不能为空}"
+test04:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    passWord: "123456789"
+    sysType: 0
+  result:
+    code: "A00001"
+    success: False
+  desc: "密码错误  msg:AES解密错误"
+test05:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType:
+  result:
+    code: "A00002"
+    success: False
+  desc: "systype为空   jmeter参数sysType:什么都无 A00003+msg:请求参数格式有误 ???requests的参数sysType加双引号 返回的A00002 data:[sysType:sysType不能为空] "
+test06:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "A00002"
+    success: False
+  desc: "少参用户名  data:[userName:userName不能为空]"
+test07:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    sysType: 0
+  result:
+    code: "A00002"
+    success: False
+  desc: "少参密码 data:[passWord:passWord不能为空]"
+test08:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+  result:
+    code: "A00002"
+    success: False
+  desc: "少参sysType  data:[sysType:sysType不能为空] "
+test09:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    add: "zhhzhy"
+    userName: "13213818483"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "00000"
+    success: True
+  desc: "多参add  放最后成功"
+test10:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+  result:
+    code: "A00003"
+    success: False
+  desc: "无参 data{passWord:passWord不能为空,userName:userName不能为空,sysType:sysType不能为空}
+  什么参也没有  {msg:请求参数格式有误,fail:true,code:A00003,data:null,success:false}
+  如何用requests实现空请求体{}???
+  空请求体{} 返回的是{fail:true,code:A00002,data:[passWord:passWord不能为空,userName:userName不能为空,sysType:sysType不能为空]"
+test15:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName:
+    passWord:
+    sysType:
+  result:
+    code: "A00002"
+    success: False
+  desc: "无参 值为空 请求体data不是null,而是空值的参
+    data{passWord:passWord不能为空,userName:userName不能为空,sysType:sysType不能为空}"
+test11:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    user: "13213818483"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "A00002"
+    success: False
+  desc: "错参user  data:[userName:userName不能为空]"
+test12:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "132138184831111111"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "A00001"
+    success: False
+  desc: "用户名长度大于16  msg:用户名或密码不正确"
+test13:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    username: "13213818483"
+    password: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    systype: 0
+  result:
+    code: "A00002"
+    success: False
+  desc: "请求体的参数大写错写为小写  requests中data:三个参数不能为空 jmeter中成功"
+test14:
+  url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+  header:
+    Content-Type: "application/json"
+  data:
+    userName: "13213818483"
+    passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+    sysType: 0
+  result:
+    code: "00000"
+    success: True
+  desc: "正向用户名、密码正确"

@@ -1,0 +1,74 @@
+test01:
+  login:
+    url: "https://cloud-api.mall4j.com/mall4cloud_auth/ua/login"
+    method: 'POST'
+    header:
+      Content-Type: "application/json"
+    data:
+      userName: "13213818483"
+      passWord: "fMsqf8ylUu3ZdYtUxxsx/SINVS5RLEqtx6ZVWJS3C/0="
+      sysType: 0
+    result:
+      code: "00000"
+      success: True
+    desc: "正向登录 "
+  proInfo:
+    url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+    method: 'GET'
+    header:
+      Content-Type: "application/json"
+    data:
+      spuId: '142'
+    result:
+      code: "00000"
+      success: True
+    desc: "正向商品详情 "
+  confirm:
+    url: "https://cloud-api.mall4j.com/mall4cloud_order/order/confirm"
+    method: 'POST'
+    header:
+      Content-Type: "application/json"
+    data:
+      addrId: 0
+      dvyType: 1
+      shopCartItem:
+        skuId: 352
+        spuId: '142'
+        count: 1
+        shopId: 4
+      couponIds:
+      isScorePay: 0
+      userChangeCoupon: 0
+      userUseScore: 0
+    result:
+      code: "00000"
+      success: True
+    desc: "正向生成订单 "
+  submit:
+    url: "https://cloud-api.mall4j.com/mall4cloud_order/order/submit"
+    method: 'POST'
+    header:
+      Content-Type: "application/json"
+    data:
+      orderShopParam:
+        - remarks:
+          shopId: 4
+      orderInvoiceList: #注意此处若是“”则提示参数格式有误
+    result:
+      code: "00000"
+      success: True
+    desc: "正向提交订单 "
+  order:
+    url: "https://cloud-api.mall4j.com/mall4cloud_payment/pay/order"
+    method: 'POST'
+    header:
+      Content-Type: "application/json"
+    data:
+      payType: 2
+      orderIds:   #从前面赋上一步生成的订单id值
+      returnUrl: "https://cloud-pc.mall4j.com/user-center/uc-order"
+    result:
+      code: "00000"
+      success: True
+    desc: "正向去支付 "
+

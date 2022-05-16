@@ -1,0 +1,459 @@
+#未鉴权用例
+test01:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1155
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A01000"
+    success: False
+  desc: "加购商品spuid和skuid不匹配"
+test02:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId:
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00002"
+    success: False
+  desc: "加购商品加购skuid为空  ???jmeter提示参数格式错误 request提示skuid不能为空  因为jmeter若是key：则格式错误 key加双引号才是空值"
+test03:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 'aa'
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购skuid为字母"
+test04:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: aa
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购skuid为字母但未引号"
+test05:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: "中文"
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购skuid为中文"
+test06:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: "@#$%&*!"
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购skuid为特殊字符"
+test07:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId:
+    oldSkuId:
+  result:
+    code: "A00002"
+    success: False
+  desc: "加购商品加购spuid为空"
+test08:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: "pp"
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购spuid为字母"
+test09:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: aa
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购spuid为字母但未引号"
+test10:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: '中文'
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购spuid为中文"
+test11:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: "@#$%&*!"
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购spuid为特殊字符"
+test12:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count:
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00002"
+    success: False
+  desc: "加购商品加购count为空"
+test13:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 0
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购count为0  ???注意是true"
+test14:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: -2
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购count为负数"
+test15:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2.5
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购count为小数"
+test16:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 'a'
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购count为字母"
+test17:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: "中文"
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购count为中文"
+test18:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: "@#$%&*!"
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购商品加购count为特殊字符"
+test19:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 88
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "A00001"
+    success: False
+  desc: "加购商品加购count是大于库存量 共87  提示 商品规格库存不足 无法进行此操作"
+test20:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: -88
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购count是负数减完之后小于0"
+#参数校验
+test21:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: 169
+    oldSkuId:
+    shopCartItemId:
+    isCheck:
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购全参shopCartItemId,spuId,oldSkuId,skuId,shopId,count,isCheck不填"
+test22:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: '169'
+    oldSkuId:
+    shopCartItemId: 11
+    isCheck: 'False'
+  result:
+    code: "00000"
+    success: True
+  desc: "加购商品加购全参shopCartItemId,spuId,oldSkuId,skuId,shopId,count,isCheck填值"
+test23:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: '169'
+    oldSkuId:
+    isCheck: 'False'
+  result:
+    code: "00000"
+    success: True
+  desc: "加购组合参 spuid，skuid，count+isCheck"
+test24:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    skuId: 1166
+    spuId: '169'
+  result:
+    code: "00000"
+    success: True
+  desc: "加购必选参spuid，skuid,count"
+##test25:
+##  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+##  method: 'POST'
+##  header:
+##    Content-Type: "application/json"
+##  data:
+##    count: 2
+##    skuId: 1166
+##    spuId: '169'
+##    spuId: 169
+##  result:
+##    code: "00000"
+##    success: True
+##  desc: "加购加购多参spuid，skuid,count+spuid同  key值不能相同 测试不了"
+##test02:
+##  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+##  method: 'POST'
+##  header:
+##    Content-Type: "application/json"
+##  data:
+##    count: 2
+##    skuId: 1166
+##    spuId: 170
+##    spuId: 169
+##  result:
+##    code: "00000"
+##    success: True
+##  desc: "加购加购多参spuid，skuid,count+spuid不同"
+test25:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    skuId: 1166
+    spuId: '169'
+    add: 'hz'
+  result:
+    code: "00000"
+    success: True
+  desc: "加购加购多参add"
+test26:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    skuId: 1166
+  result:
+    code: "A00002"
+    success: False
+  desc: "加购加购少参 spuid,count  提示skuId不能为空"
+test27:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+  result:
+    code: "A00003"
+    success: False
+  desc: "加购加购无参"
+test28:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuIds: '169'
+  result:
+    code: "A00002"
+    success: False
+  desc: "加购错参 spuids，skuid,count"
+
+test29:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/shop_cart/change_item"
+  method: 'POST'
+  header:
+    Content-Type: "application/json"
+  data:
+    count: 2
+    shopId: 4
+    skuId: 1166
+    spuId: '169'
+    oldSkuId:
+  result:
+    code: "00000"
+    success: True
+  desc: "正向加购商品数量2"

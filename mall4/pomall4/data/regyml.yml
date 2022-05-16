@@ -1,0 +1,9 @@
+test04:
+  username: "13213818483"
+  password: "1234567"
+  result: "用户名或密码不正确"
+  desc: "密码错误"
+test05:
+  username: "13213818483"
+  password: "123456"
+  result: "用户名、密码正确"

@@ -1,0 +1,7 @@
+test01:
+  searchContent: "15分钟快速救脸，射频多功能美容仪"
+  searchType: "商品"
+  numCount : "2"
+  numjfCount: ""
+  desc: "numcount为商品详情中要购买的数量值,numjfCount为订单页的积分数量"
+#test02:

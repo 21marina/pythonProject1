@@ -1,0 +1,154 @@
+test01:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+    spuId: ""
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id值为空      服务器出了点小差  "
+test02:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+    spuId:
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id为空 服务器出了点小差 "
+test03:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id键值对不存在 服务器出了点小差 "
+
+test04:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+    spuId: '0'
+  result:
+    code: "A01000"
+    success: False
+  desc: "商品详情商品id不存在 商品不存在 "
+test05:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: 'aa'
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品详情商品id为字母 服务器出了点小差"
+test06:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: '中文'
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id为中文 服务器出了点小差 "
+test07:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: '-169'
+  result:
+    code: "A01000"
+    success: False
+  desc: "商品id为负号 商品不存在 "
+test08:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: '@#￥'
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id为特殊字符 服务器出了点小差 "
+test09:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: '1691111111111111111111111111111111111111111111111111111111111111111111'
+  result:
+    code: "A00005"
+    success: False
+  desc: "商品id长度为22 服务器出了点小差 "
+#参数校验
+test30:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+  result:
+    code: "A00005"
+    success: False
+  desc: "少参spuid 服务器出了点小差 "
+test31:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+    add: 'hz'
+    spuId: '169'
+  result:
+    code: "00000"
+    success: True
+  desc: "多参 对 "
+test32:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+  result:
+    code: "A00005"
+    success: False
+  desc: "无参 同少参 服务器出了点小差 "
+test33:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuIds: '169'
+  result:
+    code: "A00005"
+    success: False
+  desc: "错参 服务器出了点小差 "
+test10:
+  url: "https://cloud-api.mall4j.com/mall4cloud_product/ma/spu/prod_info"
+  method: 'GET'
+  header:
+    Content-Type: "application/json"
+  data:
+   spuId: '169'
+  result:
+    code: "00000"
+    success: True
+  desc: "正向商品详情 共14"

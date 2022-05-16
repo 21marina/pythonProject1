@@ -1,0 +1,70 @@
+test01:
+  content: ""
+  type: "商品"
+  result: "请输入关键词"
+  desc: "搜索商品内容为空"
+test02:
+  content: "#abc"
+  type: "商品"
+  result: "list?keyword=#abc"
+  desc: "搜索#开头"
+test03:
+  content: "whoo"
+  type: "商品"
+  result: "list?keyword=whoo"
+  desc: "搜索字符"
+test04:
+  content: "包"
+  type: "商品"
+  result: "list?keyword=包"
+  desc: "搜索中文"
+test05:
+  content: "1"
+  type: "商品"
+  result: "list?keyword=1"
+  desc: "搜索数字"
+test06:
+  content: "@#￥"
+  type: "商品"
+  result: "list?keyword=@#￥"
+  desc: "搜索特殊字符"
+test07:
+  content: "-3"
+  type: "商品"
+  result: "list?keyword=-3"
+  desc: "搜索负数"
+test08:
+  content: ""
+  type: "店铺"
+  result: "请输入关键词"
+  desc: "搜索店铺内容为空"
+test09:
+  content: "#abc"
+  type: "店铺"
+  result: "good-shop-list?shopName=#abc"
+  desc: "搜索#开头"
+test10:
+  content: "allen"
+  type: "店铺"
+  result: "good-shop-list?shopName=allen"
+  desc: "搜索字符"
+test11:
+  content: "测试"
+  type: "店铺"
+  result: "good-shop-list?shopName=测试"
+  desc: "搜索中文"
+test12:
+  content: "2022"
+  type: "店铺"
+  result: "good-shop-list?shopName=2022"
+  desc: "搜索数字"
+test13:
+  content: "@#￥"
+  type: "店铺"
+  result: "good-shop-list?shopName=@#￥"
+  desc: "搜索特殊字符"
+test14:
+  content: "-3"
+  type: "店铺"
+  result: "good-shop-list?shopName=-3"
+  desc: "搜索负数"
