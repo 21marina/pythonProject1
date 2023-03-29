@@ -20,7 +20,7 @@ class testmain():
         #     unittest.defaultTestLoader.loadTestsFromTestCase(SampleTest0),
         su = unittest.defaultTestLoader.discover("./", pattern="test*.py")
         filepath = "{}.html".format(time.strftime("%Y-%m-%d_%H-%M-%S"))
-        BeautifulReport(su).report(description="beautify", filename=filepath, log_path="../log\")
+        BeautifulReport(su).report(description="beautify", filename=filepath, log_path="../log/")
 
 if __name__=="__main__":
 
